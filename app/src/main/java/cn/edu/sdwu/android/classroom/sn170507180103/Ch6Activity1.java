@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import org.xmlpull.v1.XmlPullParser;
+
 public class Ch6Activity1 extends AppCompatActivity {
 
     @Override
@@ -56,6 +58,25 @@ public class Ch6Activity1 extends AppCompatActivity {
         LinearLayout linearLayout=(LinearLayout)findViewById(R.id.ch6_1_ll);
 
         registerForContextMenu(linearLayout);
+
+
+        //XML
+
+        XmlPullParser xmlPullParser=resources.getXml(R.xml.words);
+        try{
+            while(xmlPullParser.getEventType()!=XmlPullParser.END_DOCUMENT){//判断是否能够到达文档结尾
+                if(xmlPullParser.getEventType()==XmlPullParser.START_TAG){//到达新元素的开始
+                    //判断一下是否是word元素(words直接跳过)
+                    if(xmlPullParser.getName().equals("word")){
+                        String word=xmlPullParser.getAttributeValue(0);//当前第几个属性
+                        Log.i(Ch6Activity1.class.toString(),word);
+                    }
+                }
+                xmlPullParser.next();
+            }
+        }catch (Exception e){
+            Log.e(Ch6Activity1.class.toString(),e.toString());
+        }
 
     }
 
