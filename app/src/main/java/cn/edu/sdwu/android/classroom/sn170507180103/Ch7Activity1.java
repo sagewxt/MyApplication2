@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class Ch7Activity1 extends AppCompatActivity {
     private ArrayList list;//定义成员，保存数组中数据
-
+    //private ArrayAdapter arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,5 +83,6 @@ public class Ch7Activity1 extends AppCompatActivity {
         });
 
     }//oncreate
+
 
 }
