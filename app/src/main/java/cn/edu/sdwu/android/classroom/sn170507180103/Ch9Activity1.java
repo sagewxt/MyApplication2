@@ -33,7 +33,7 @@ public class Ch9Activity1 extends AppCompatActivity {
             public void run() {
                 //线程实际进行的工作
                 int i=0;
-                while(1<=100){
+                while(i<=100){
                     progressBar.setProgress(i);
                     try{
                         Thread.sleep(1000);
